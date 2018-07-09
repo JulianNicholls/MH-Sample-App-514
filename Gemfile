@@ -32,3 +32,5 @@ end
 group :production do
   gem 'pg', '0.18.4'
 end
+
+gem 'bootstrap-sass', '3.3.7'
