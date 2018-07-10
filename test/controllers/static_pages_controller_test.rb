@@ -9,6 +9,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     get root_path
     assert_response :success
     assert_select "title", "#{@base_title}"
+    assert_select 'a[href=?]', signup_path
   end
 
   test "should get help" do
