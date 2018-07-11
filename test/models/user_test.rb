@@ -28,7 +28,7 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'email should be a certain length' do
-    @user.email = 'aaaaa'
+    @user.email = 'aaaaaa'
     assert_not @user.valid?
 
     @user.email = 'a' * 244 + '@example.com'
@@ -38,12 +38,31 @@ class UserTest < ActiveSupport::TestCase
   test 'email should accept valid addresses' do 
     valid_addresses = %w[
       user@example.com USER@foo.com A_US-ER@foo.bar.org A_UK+US-ER@foo.bar.org.uk
-      first.last@com.net alice+baz@a.cn
+      first.last@com.net alice+baz@a.cn a@b.tv user@hyphenated-dot.com
     ]
 
     valid_addresses.each do |addr|
       @user.email = addr
       assert @user.valid?, "#{addr.inspect} should be valid"
     end 
+  end
+
+  test 'email should reject INvalid addresses' do 
+    invalid_addresses = %w[
+      user@example,com user_at_foo.org user.name@example. foo@bar_baz.com
+      foo@bar+baz.com foo@bar..com
+    ]
+
+    invalid_addresses.each do |addr|
+      @user.email = addr
+      assert_not @user.valid?, "#{addr.inspect} should be INvalid"
+    end 
+  end
+
+  test 'Email addresses must be unique, case-sensitively' do
+    duplicate = @user.dup
+    duplicate.email.upcase!
+    @user.save
+    assert_not duplicate.valid?
   end
 end
