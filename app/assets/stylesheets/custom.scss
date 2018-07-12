@@ -169,6 +169,23 @@ input {
   padding: 3px 5px;
 }
 
+#error_explanation {
+  color: red;
+
+  ul, ol {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+
+  .formn-control {
+    color: $state-danger-text;
+  }
+}
+
 
 
 // DEBUG

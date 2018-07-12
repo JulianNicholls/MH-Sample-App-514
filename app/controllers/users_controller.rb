@@ -9,7 +9,18 @@ class UsersController < ApplicationController
   end
 
   def create
-    debugger
+    @user = User.new valid_params
+
+    if @user.save
+      
+    else
+      render :new
+    end
   end
 
+  private
+
+  def valid_params
+    params.require(:user).permit :name, :email, :password, :password_confirmation
+  end
 end
