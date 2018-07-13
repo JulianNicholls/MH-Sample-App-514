@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: session_params[:email].downcase)
     if user && user.authenticate(session_params[:password])
     else
-      flash[:danger] = 'Invalid email or password.'
+      flash.now[:danger] = 'Invalid email or password.' # Ensure it only appears once
       render :new
     end
   end
