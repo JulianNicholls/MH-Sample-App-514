@@ -1,5 +1,7 @@
 {
   "name": "mhartl_sample_app",
   "private": true,
-  "dependencies": {}
+  "devdependencies": {
+    "eslint": "^5.1.0"
+  }
 }
