@@ -56,7 +56,7 @@ h2 {
 }
 
 p {
-  font-style: 1.1em;
+  font-size: 1.1em;
   line-height: 1.7em;
 }
 
@@ -167,6 +167,21 @@ input {
   height: auto !important;
   font-size: 1em;
   padding: 3px 5px;
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
 
 #error_explanation {
