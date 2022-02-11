@@ -3,7 +3,7 @@ ruby '2.4.1'
 
 gem 'rails',        '5.1.4'
 gem 'bcrypt',       '3.1.12'
-gem 'puma',         '4.3.9'
+gem 'puma',         '4.3.11'
 gem 'sass-rails',   '5.0.6'
 gem 'uglifier',     '3.2.0'
 gem 'coffee-rails', '4.2.2'
